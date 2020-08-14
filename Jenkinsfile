@@ -1,9 +1,11 @@
 node {
-  stage 'Checkout'{
+  stage 'Checkout'
   git 'https://github.com/Nitin-2015/docker-pipeline-demo.git'
+  
+  stage 'shell'
     sh label: '', script: 'ls'
     sh label: '', script: './sonar.sh'
-  }
+  
  
   stage 'Docker build'
   docker.build('jenkins_ecr')
